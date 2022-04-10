@@ -37,6 +37,11 @@
             @endif
 
             <div>welcom page</div>
+ <!--
+             <main class="py-4">
+           @yield('content') 
+        </main>
+-->
         </div>
     </body>
 </html>
