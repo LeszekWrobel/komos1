@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 */
 //Route::get('/', 'CommissionsController@index');
-Route::get('/', [App\Http\Controllers\CommissionsController::class, 'index']);
+
 //Route::get('/home', [App\Http\Controllers\CommissionsController::class, 'home']);
 
 
@@ -40,4 +40,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::resourse('POST',  'CommissionsController');
 //Route::resourse('POST',  App\Http\Controllers\CommissionsControlle);
 
+Route::get('/', [App\Http\Controllers\CommissionsController::class, 'index']);
+Route::resource('/commissions', 'App\Http\Controllers\CommissionsController');
 

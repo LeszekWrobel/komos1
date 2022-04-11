@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Commissions;
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class CommissionsController extends Controller
 {
     /**
@@ -14,13 +16,24 @@ class CommissionsController extends Controller
      */
     public function index()
     {
-         //return view('welcome');
-         return view('commissions.index');
+        $commissions = Commissions::all();
+        //$commissions = auth()->user()->commissions; //nie dziala
+        //return $commissions;
+         return view('welcome', compact('commissions'));
+         //return view('commissions.index');
+          
     }
 
      public function home()
     {
         $commissions = Commissions::find();
+        return $commisions;
+         return view('home');
+    }
+
+    public function POST()
+    {
+       // $commissions = Commissions::find();
          return view('home');
     }
 
@@ -32,7 +45,16 @@ class CommissionsController extends Controller
     public function create()
     {
        // $commissions = Commissions::find();
-      //  return view('home')
+      // return User::all();
+
+       // $users = User::find();
+        //return $user;
+		//return view('create', compact('users'));
+        //return ($user->id);
+
+        //return view('commissions/create');
+        //return view('commissions/create', compact('user'));
+        // return view('commissions/create', compact('users'));
     }
 
     /**
@@ -43,7 +65,15 @@ class CommissionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return request()->all();
+        $commission = new Commissions;
+        $commission->title = request('title');
+        $commission->description = request('description');
+        $commission->image = request('image');
+        $commission->user_id = request('user_id');
+        //$commission->user_id = $user->id;
+
+       //$commission->save();
     }
 
     /**

@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    @include ('components.create')                  
+                    @include ('commissions.create')                  
                 </div>
             </div>
         </div>
